@@ -1,4 +1,4 @@
-export default ({types: t}) => ({
+exports.default = function({types: t}) ({
   visitor: {
     Identifier(path, state) {
       const replacement = state.opts[path.node.name]
