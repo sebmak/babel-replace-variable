@@ -1,5 +1,5 @@
 {
-  "name": "babel-replace-variable",
+  "name": "babel-plugin-replace-variable",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
