@@ -1,6 +1,6 @@
 exports.default = function({types: t}) ({
   visitor: {
-    Identifier(path, state) {
+    Identifier: function(path, state) {
       const replacement = state.opts[path.node.name]
       if (path.parent.type === 'MemberExpression') {
         return;
