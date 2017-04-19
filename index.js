@@ -8,7 +8,7 @@ exports.default = function ({types: t}) {
     return {
         visitor: {
             Identifier: function(path, state) {
-                const replacement = state.opts[path.node.name];
+                const replacement = process.env[path.node.name] || state.opts[path.node.name];
                 if (path.parent.type === 'MemberExpression') {
                     return;
                 }
