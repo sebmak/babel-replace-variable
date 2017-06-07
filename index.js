@@ -8,7 +8,7 @@ exports.default = function ({types: t, transform}) {
     return {
         visitor: {
             Identifier: function(path, state) {
-                const replacement = process.env[path.node.name] || process.env[`__${path.node.name.toUpperCase()}__`] || state.opts[path.node.name];
+                const replacement = process.env[path.node.name] || process.env[path.node.name.replace(/__/g, '').toLowerCase()] || state.opts[path.node.name];
                 if (path.parent.type === 'MemberExpression') {
                     return;
                 }
