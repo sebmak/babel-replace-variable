@@ -13,10 +13,10 @@ while (path_to_check) {
   try {
     let file = null;
     //Check for either .env or .env.ENVIRONMENT files
-    if (fs.statSync(path.resolve(path_to_check, '.env'))) {
-      file = fs.readFileSync(path.resolve(path_to_check, '.env'), 'utf8').split('\n').filter(c=>c);
-    } else if (fs.statSync(path.resolve(path_to_check, `.env.${process.env.NODE_ENV||'development'}`))) {
+    if (fs.statSync(path.resolve(path_to_check, `.env.${process.env.NODE_ENV||'development'}`))) {
       file = fs.readFileSync(path.resolve(path_to_check, `.env.${process.env.NODE_ENV||'development'}`), 'utf8').split('\n').filter(c=>c);
+    } else if (fs.statSync(path.resolve(path_to_check, '.env'))) {
+      file = fs.readFileSync(path.resolve(path_to_check, '.env'), 'utf8').split('\n').filter(c=>c);
     }
 
     if (!file) {
