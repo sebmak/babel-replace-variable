@@ -1,14 +1,14 @@
 'use strict';
+const fs = require('fs');
+const path = require('path');
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-const fs = require('fs');
-const path = require('path');
-
 let ENV = {};
 let path_to_check = path.normalize(__dirname);
+
 while (path_to_check) {
   try {
     let file = null;
@@ -23,7 +23,7 @@ while (path_to_check) {
       throw "No file";
     }
 
-    for (const str of _env) {
+    for (const str of file) {
       const [key,val] = str.split('=');
       ENV[key]=val;
       if (!isNaN(Number(val))) {
