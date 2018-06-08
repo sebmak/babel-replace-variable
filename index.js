@@ -42,6 +42,11 @@ const ENV_VARIABLES = new Proxy({
     __ENVIRONMENT__: 'development'
 }, {
     get: function(target, name) {
+        console.log('target', target);
+        console.log('name', name);
+        
+        console.log(process.env, ENV);
+        
         return process.env[name] || ENV[name] || target[name];
     }
 });
